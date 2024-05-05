@@ -1,17 +1,16 @@
-require 'json'
+Pod::Spec.new do |spec|
+    spec.name         = "PluginTestToStructure"
+    spec.version      = "0.1.0"
+    spec.authors      = "Alexander"
+    spec.summary      = "Краткое описание вашего плагина."
+    spec.license      = { :type => "MIT" }
+    spec.homepage     = "https://example.com"
+    spec.source       = { :git => "https://github.com/BelyaevAlex/TextToStructurePlugin.git", :tag => "0.1.0" }
 
-package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
+    spec.platform     = :ios
+    spec.ios.deployment_target = "13.0"
 
-Pod::Spec.new do |s|
-  s.name = 'PluginTestToStructure'
-  s.version = package['version']
-  s.summary = package['description']
-  s.license = package['license']
-  s.homepage = package['repository']['url']
-  s.author = package['author']
-  s.source = { :git => package['repository']['url'], :tag => s.version.to_s }
-  s.source_files = 'ios/Plugin/**/*.{swift,h,m,c,cc,mm,cpp}'
-  s.ios.deployment_target  = '13.0'
-  s.dependency 'Capacitor'
-  s.swift_version = '5.1'
+    # Добавьте исходные файлы
+    spec.source_files = "ios/Plugin/TextToStructurePlugin.swift"
+
 end
